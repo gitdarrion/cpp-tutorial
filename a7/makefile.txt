@@ -1,0 +1,22 @@
+CC=g++
+
+
+
+all: fork complexmain
+
+fork: fork.o
+	$(CC) fork.cpp -o fork
+	
+complexmain: main.o complexops.o
+	$(CC) $(CCFLAGS) main.o complexops.o -o complexmain -pthread
+
+fork.o: fork.cpp
+	$(CC) -c fork.cpp
+	
+main.o: main.cpp
+	$(CC) -c main.cpp -pthread
+	
+complexops.o: complexops.cpp
+	$(CC) -c complexops.cpp -pthread
+
+

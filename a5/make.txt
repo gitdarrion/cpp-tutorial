@@ -1,0 +1,8 @@
+CC = g++
+
+all: product 
+
+product: product.cpp
+	${CC} product.cpp -o product
+
+

@@ -1,0 +1,12 @@
+CC = g++
+
+all: main
+
+main: mmain.o maestromatrix.o
+	${CC} -pthread mmain.o maestromatrix.o -o main
+
+mmain.o: mmain.cpp maestromatrix.h pthread.h
+	${CC} mmain.cpp maestromatrix.h pthread.h -c
+
+maestromatrix.o: maestromatrix.cpp maestromatrix.h pthread.h
+	${CC} mmain.cpp maestromatrix.h pthread.h -c
